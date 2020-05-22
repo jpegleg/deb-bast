@@ -1,0 +1,84 @@
+- name: Update and Upgrade debian
+  hosts: haproxy
+  tasks:
+
+  - name: upgrade all packages 
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400
+      
+  - name: install vim
+    apt:
+      name: vim
+      state: latest
+  
+  - name: install ssh
+    apt:
+      name: ssh
+      state: latest
+      
+  - name: install curl
+    apt:
+      name: curl
+      state: latest
+
+  - name: install ufw
+    apt:
+      name: ufw
+      state: latest
+      
+  - name: install fail2ban
+    apt:
+      name: fail2ban
+      state: latest
+      
+  - name: install ansible
+    apt:
+      name: ansible
+      state: latest
+      
+  - name: install git
+    apt:
+      name: git
+      state: latest
+      
+  - name: install tmux
+    apt:
+      name: tmux
+      state: latest
+      
+  - name: set ufw to allow https
+    shell: ufw allow https
+    args:
+      executable: /bin/bash
+      
+  - name: set ufw to allow ssh
+    shell: ufw allow ssh
+    args:
+      executable: /bin/bash
+
+  - name: set ufw to allow syslog
+    shell: ufw allow syslog
+    args:
+      executable: /bin/bash
+      
+  - name: set ufw to reload
+    shell: ufw reload
+    args:
+      executable: /bin/bash
+      
+  - name: set ufw to enable
+    shell: ufw enable
+    args:
+      executable: /bin/bash
+      
+  - name: set fail2ban
+    shell: systemctl enable fail2ban
+    args:
+      executable: /bin/bash
+      
+  - name: restart fail2ban
+    shell: systemctl restart fail2ban
+    args:
+      executable: /bin/bash
