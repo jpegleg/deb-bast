@@ -17,7 +17,27 @@
     apt:
       name: ssh
       state: latest
-      
+
+  - name: install gpg
+    apt:
+      name: gpg
+      state: latest
+
+  - name: install tcpdump
+    apt:
+      name: tcpdump
+      state: latest
+
+  - name: install python3
+    apt:
+      name: python3
+      state: latest
+
+  - name: install netcat
+    apt:
+      name: netcat
+      state: latest
+
   - name: install curl
     apt:
       name: curl
