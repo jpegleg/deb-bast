@@ -170,6 +170,6 @@
       state: latest 
       
   - name: add microk8s snap
-    shell: nap install microk8s --classic
+    shell: snap install microk8s --classic
     args:
       executable: /bin/bash       
