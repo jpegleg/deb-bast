@@ -146,7 +146,8 @@
   - name: add docker repo key
     shell: curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
     args:
-      executable: /bin/bash      
+      executable: /bin/bash 
+      warn: no
    
   - name: add docker repo 
     shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
