@@ -124,7 +124,7 @@
       executable: /bin/bash
       
   - name: set ufw to enable
-    shell: ufw enable
+    shell: echo "y" | ufw enable
     args:
       executable: /bin/bash
       
@@ -144,7 +144,7 @@
       state: absent
       
   - name: add docker repo key
-    shell: curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+    shell: curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
     args:
       executable: /bin/bash      
    
@@ -153,10 +153,11 @@
     args:
       executable: /bin/bash    
 
-  - name: upgrade all packages again
+  - name: upgrade all packages again and autoclean
     apt:
       upgrade: yes
       update_cache: yes
+      autoclean: yes
       cache_valid_time: 86400
 
   - name: install docker-ce
