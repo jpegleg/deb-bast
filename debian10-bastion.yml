@@ -7,6 +7,26 @@
       upgrade: yes
       update_cache: yes
       cache_valid_time: 86400
+ 
+  - name: install apt-transport-https
+    apt:
+      name: apt-transport-https
+      state: latest
+
+  - name: install ca-certificates
+    apt:
+      name: ca-certificates
+      state: latest
+
+  - name: install gnupg-agent
+    apt:
+      name: gnupg-agent
+      state: latest
+      
+  - name: install software-properties-common
+    apt:
+      name: software-properties-common
+      state: latest
       
   - name: install vim
     apt:
@@ -41,6 +61,11 @@
   - name: install curl
     apt:
       name: curl
+      state: latest
+
+  - name: install openssl
+    apt:
+      name: openssl
       state: latest
 
   - name: install ufw
@@ -102,3 +127,49 @@
     shell: systemctl restart fail2ban
     args:
       executable: /bin/bash
+
+  - name: remove old docker packages to make room for the right ones
+    apt:
+      name: docker docker-engine docker.io containerd runc
+      state: absent
+      
+  - name: add docker repo key
+    shell: curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+    args:
+      executable: /bin/bash      
+   
+  - name: add docker repo 
+    shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+    args:
+      executable: /bin/bash    
+
+  - name: upgrade all packages again
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400
+
+  - name: install docker-ce
+    apt:
+      name: docker-ce
+      state: latest
+      
+  - name: install docker-ce-cli
+    apt:
+      name: docker-ce-cli
+      state: latest
+      
+  - name: install containerd.io
+    apt:
+      name: containerd.io
+      state: latest      
+
+  - name: install snapd
+    apt:
+      name: snapd
+      state: latest 
+      
+  - name: add microk8s snap
+    shell: nap install microk8s --classic
+    args:
+      executable: /bin/bash       
