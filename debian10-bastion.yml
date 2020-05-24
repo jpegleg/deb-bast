@@ -43,6 +43,16 @@
       name: gpg
       state: latest
 
+  - name: install tar
+    apt:
+      name: tar
+      state: latest
+
+  - name: install rsync
+    apt:
+      name: rsync
+      state: latest
+
   - name: install tcpdump
     apt:
       name: tcpdump
