@@ -1,0 +1,29 @@
+- name: Update and Upgrade debian
+  hosts: deb-bast
+  tasks:
+
+  - name: upgrade all packages 
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400
+      
+  - name: add postman snap
+    shell: snap install postman
+    args:
+      executable: /bin/bash  
+      
+  - name: install inkscape
+    apt:
+      name: inkscape
+      state: latest
+      
+  - name: install gimp
+    apt:
+      name: gimp
+      state: latest    
+
+  - name: install wireshark
+    apt:
+      name: wireshark
+      state: latest   
