@@ -1,5 +1,5 @@
 - name: Update and Upgrade debian
-  hosts: haproxy
+  hosts: deb-bast
   tasks:
 
   - name: upgrade all packages 
