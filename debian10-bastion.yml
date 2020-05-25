@@ -43,9 +43,19 @@
       name: gpg
       state: latest
 
-  - name: install tar
+  - name: install tar 
     apt:
       name: tar
+      state: latest
+
+  - name: install cc
+    apt:
+      name: cc
+      state: latest
+
+  - name: install gcc
+    apt:
+      name: gcc
       state: latest
 
   - name: install rsync
