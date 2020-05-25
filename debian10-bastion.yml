@@ -48,11 +48,6 @@
       name: tar
       state: latest
 
-  - name: install cc
-    apt:
-      name: cc
-      state: latest
-
   - name: install gcc
     apt:
       name: gcc
