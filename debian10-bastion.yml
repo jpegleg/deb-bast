@@ -185,3 +185,12 @@
     shell: snap install microk8s --classic
     args:
       executable: /bin/bash       
+
+  - name: stop microk8s for now
+    shell: microk8s stop
+    args:
+      executable: /bin/bash   
+
+  - name: disable snapd auto start
+    args: systemctl disable snapd
+      executable: /bin/bash   
