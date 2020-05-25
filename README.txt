@@ -7,7 +7,6 @@ No GUI required
 vim
 ssh
 gpg
-cc
 gcc
 tar
 rsync
