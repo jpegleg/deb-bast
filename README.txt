@@ -1,6 +1,6 @@
 # deb-bast
 Ansible playbook to install common workstation tools.
-Depending on the Debain install used prior to this, many of these tools may 
+Depending on the Debain install method used by you before running the playbook, many of these tools may 
 already be installed. Tested/for Debian 10.X.
 
 No GUI required
