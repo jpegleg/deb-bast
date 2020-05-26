@@ -147,32 +147,4 @@
       autoclean: yes
       cache_valid_time: 86400
 
-  - name: install docker-ce
-    apt:
-      name: docker-ce
-      state: latest
-      
-  - name: install docker-ce-cli
-    apt:
-      name: docker-ce-cli
-      state: latest
-      
-  - name: install containerd.io
-    apt:
-      name: containerd.io
-      state: latest      
-
-  - name: install snapd
-    apt:
-      name: snapd
-      state: latest 
-      
-  - name: add microk8s snap
-    shell: snap install microk8s --classic   
-
-  - name: stop microk8s for now
-    shell: microk8s stop
-
-  - name: disable snapd auto start
-    shell: systemctl disable snapd
-  
+ 
