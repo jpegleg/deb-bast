@@ -53,6 +53,16 @@
       name: gcc
       state: latest
 
+  - name: install g++
+    apt:
+      name: g++
+      state: latest
+
+  - name: install make
+    apt:
+      name: make
+      state: latest
+
   - name: install rsync
     apt:
       name: rsync
